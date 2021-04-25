@@ -7,6 +7,7 @@ import { convertDurationToTimeString } from "../../utils/convertDurationToTimeSt
 import styles from "./episode.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+
 import Head from 'next/head';
 
 type Episode = {
@@ -26,6 +27,7 @@ type EpisodeProps = {
 };
 
 export default function Episode({ episode }: EpisodeProps) {
+
   return (
     <div className={styles.episode}>
       <Head>
@@ -66,7 +68,7 @@ export default function Episode({ episode }: EpisodeProps) {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: 'blocking' //sendo gerado conforme o acesso dos usuários
   };
 };
 
