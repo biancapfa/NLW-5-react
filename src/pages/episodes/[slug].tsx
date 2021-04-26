@@ -9,6 +9,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Head from 'next/head';
+import { usePlayer } from "../../contexts/PlayerContext";
+
+
 
 type Episode = {
   id: string;
@@ -28,6 +31,8 @@ type EpisodeProps = {
 
 export default function Episode({ episode }: EpisodeProps) {
 
+  const {play} = usePlayer();
+
   return (
     <div className={styles.episode}>
       <Head>
@@ -45,7 +50,7 @@ export default function Episode({ episode }: EpisodeProps) {
           src={episode.thumbnail}
           objectFit="cover"
         />
-        <button type="button">
+        <button type="button"  onClick={() => play(episode)}>
           <img src="/play.svg" alt="Tocar episódio" />
         </button>
       </div>
